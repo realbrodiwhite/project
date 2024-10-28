@@ -1,38 +1,55 @@
 {
   "name": "ml-training-tool",
-  "version": "0.1.1",
-  "private": true,
+  "version": "1.0.0",
+  "description": "ML Training Tool with Electron",
+  "main": "main.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "electron .",
+    "dev": "concurrently \"npm run start\" \"cross-env BROWSER=none react-scripts start\"",
+    "build": "react-scripts build && electron-builder",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@radix-ui/react-alert-dialog": "^1.1.2",
-    "@radix-ui/react-icons": "^1.3.0",
-    "@radix-ui/react-progress": "^1.1.0",
-    "@radix-ui/react-scroll-area": "^1.2.0",
-    "@radix-ui/react-select": "^2.1.2",
-    "@radix-ui/react-tabs": "^1.1.1",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.453.0",
-    "next": "^12.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "recharts": "^2.1.6",
-    "tailwind-merge": "^2.5.4",
+    "clsx": "^2.0.0",
+    "electron": "^27.1.0",
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.10.3",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss": "^3.3.5",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6",
-    "@types/react": "^17.0.33",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.1.0",
-    "eslint-config-next": "^12.0.0",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
-    "typescript": "^4.4.4"
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron-builder": "^24.6.4",
+    "postcss": "^8.4.31",
+    "react-scripts": "^3.0.1",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.mltrainingtool.app",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "browserslist": {
+    "production": [
+      "last 1 electron version"
+    ],
+    "development": [
+      "last 1 electron version"
+    ]
   }
 }
